@@ -1,0 +1,30 @@
+install autotools and automake
+
+create project directory tree
+create sourcefiles
+
+run autoscan
+
+rename configure.scan to configure.ac
+edit configure.ac (AC_INIT line)
+
+write Makefile.am (one or more)
+edit configure.ac and add AM_INIT_AUTOMAKE
+
+
+ in lib/Makefile.am
+
+1.
+
+ if lib sources variable begins with 'xzy' instead of 'noinst', autreconf will complain about a missing xzydir definition.
+
+Just call it noinst_LIBRARIES =
+
+
+2.
+
+static libs  need RANLIB, so add AC_PROG_RANLIB into the configure.ac
+
+-----
+
+Do not use CFLAGS and LDFLAGS, but AM_CFLAGS and AM_LDFLAGS
